@@ -1,0 +1,27 @@
+{
+    "short_name": "SheepHerding",
+    "name": "Herd, Brand, Breed!",
+    "icons": [{
+            "src": "/assets/icons/icon_small_transparent.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/icons/icon_large_transparent.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#f8f9fa",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#f8f9fa",
+    "shortcuts": [],
+    "description": "Create your own herd, brand your favourite animals, and encourage them to breed",
+    "screenshots": [{
+        "src": "/assets/images/screenshot1.png",
+        "type": "image/png",
+        "sizes": "540x720"
+    }]
+}
