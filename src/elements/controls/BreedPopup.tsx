@@ -134,7 +134,7 @@ export class BreedPopup extends React.Component<popupProps, popupState> {
   }
 
   onPressAdd() {
-    let nameField = document.getElementById('fname');
+    let nameField = document.getElementById('newbornname');
     if(nameField) {
       if(!this.state.name || !this.isNameUnique(this.state.name)) {
         nameField.classList.add("invalid");
