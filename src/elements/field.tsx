@@ -69,15 +69,15 @@ export class Field extends React.Component<FieldProps, FieldState> {
     }
 
     breed() {
-        /*
-        let males = this.herd.filter(sheep => sheep.props.gender == Gender.Male);
-        let fertileM = males.filter(sheep => sheep.props.branded == false);
+        let males = this.state.herd.filter(sheep => sheep.props.gender == 'Male');
+        //let fertileM = males.filter(sheep => sheep.state.branded == false);
+        let fertileM = males;
 
-        let females = this.herd.filter(sheep => sheep.props.gender == Gender.Female);
-        let fertileF = females.filter(sheep => sheep.props.branded == false);
+        let females = this.state.herd.filter(sheep => sheep.props.gender == 'Female');
+        //let fertileF = females.filter(sheep => sheep.state.branded == false);
+        let fertileF = females;
 
         return ( fertileF.length > 0 && fertileM.length > 0 ) ? this.getRandomPair(fertileF, fertileM) : null;
-        */
     }
 
     getRandomPair( females: Array<React.ReactElement>, males: Array<React.ReactElement> ) {

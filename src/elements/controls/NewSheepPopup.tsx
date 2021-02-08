@@ -3,15 +3,17 @@ import { Field } from '../field';
 import { Sheep } from '../sheep';
 import { Gender } from '../../base';
 
-type popupState = { name: string, gender: Gender };
+type popupState = { name: string, gender: Gender | string };
 type popupProps = { field: Field };
 
 export class NewSheepPopup extends React.Component<popupProps, popupState> {
 
   constructor(props: any) {
     super(props);
-    this.state = {name: '', gender: Gender.Male};
+    this.state = {name: '', gender: ''};
 
+    this.initState = this.initState.bind(this);
+    this.onClose = this.onClose.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
     this.onGenderChange = this.onGenderChange.bind(this);
     this.onPressAdd = this.onPressAdd.bind(this);
@@ -26,7 +28,6 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
             
             <div className="modal-header">
               <h5 className="modal-title" id="newSheepModalLabel">Add new sheep</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
 
@@ -39,7 +40,13 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
               <label >Gender:</label>
               <select id="gender" name="genderlist" form="newSheepForm"
                 value={this.state.gender} onChange={this.onGenderChange}>
-                {  Object.values(Gender).map(value => 
+                <option
+                        aria-selected="true"
+                        key=''
+                        value='' >
+                        
+                  </option>
+                {  Object.keys(Gender).filter(g => !Number.isInteger(parseInt(g))).map(value => 
                     (
                       <option
                         aria-selected="true"
@@ -74,6 +81,8 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
   }
 
   onClose() {
+    this.initState();
+    
     let popup = document.getElementById("newSheepPopup");
     if(popup) {
         popup.style.opacity = '0';
@@ -89,10 +98,11 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
       let isAllValid = this.validateFields(nameField, genderField);
       if(isAllValid) {
         this.submitSheep();
+        this.onClose();
       }
     }
 
-    this.onClose();
+    
   }
 
   validateFields(nameField: HTMLElement, genderField: HTMLElement) {
@@ -137,6 +147,12 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
   }
 
   isNameUnique(name: string) {
-    return (name)? true: false;
+    let existing = document.getElementById("sheep_" + name);
+    return (!existing)? true: false;
+  }
+
+
+  initState() {
+    this.setState({name: '', gender: ''});
   }
 }

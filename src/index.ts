@@ -8,6 +8,7 @@ import * as ReactDOM from 'react-dom';
 import { Field } from './elements/field';
 import { ControlPanel } from './elements/controlPanel';
 import { NewSheepPopup } from './elements/controls/NewSheepPopup';
+import { BreedPopup } from './elements/controls/BreedPopup';
 
 
 function main() {
@@ -25,27 +26,28 @@ function main() {
         }
     );
 
-    let popup = React.createElement(
+    let newsheeppopup = React.createElement(
         NewSheepPopup,
-        {
-            field: field
-        }
+        { }
+    );
+
+
+    let breedpopup = React.createElement(
+        BreedPopup,
+        { }
     );
     
 
     let container = React.createElement(
         'div', 
         { className: 'appcontainer' }, 
-        controlPanel, field, popup
+        controlPanel, field, newsheeppopup, breedpopup
     );
 
-    
-    let d = ReactDOM.render(
+    ReactDOM.render(
         container,
         document.getElementById('app')
     );
-
-        console.log(d);
 }
 
 main();

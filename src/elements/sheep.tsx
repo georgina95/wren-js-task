@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Gender } from '../base';
 
-type MyProps = { name: string, gender: Gender, parent1: Sheep, parent2: Sheep };
+type MyProps = { name: string, gender: Gender, parent1: React.ReactElement, parent2: React.ReactElement };
 type MyState = { branded: boolean};
 
 export class Sheep extends React.Component<MyProps, MyState> {
