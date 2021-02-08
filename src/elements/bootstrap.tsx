@@ -22,7 +22,7 @@ export class ToggleButton extends React.Component<ToggleProps, ToggleState> {
     }
 
     onToggleNavbar() {
-        let displayValue = (!this.state.isToggleOn)? '-webkit-box' : 'none';
+        let displayValue = (!this.state.isToggleOn)? 'inline-grid' : 'none';
         let collapsablePanel = document.getElementById("controlPanelCollapsableContent");
 
         if(collapsablePanel) {

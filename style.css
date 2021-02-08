@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'icomoon';
+    src: local('icomoon'), url(./assets/fonts/icomoon.woff) format('woff');
+}
+
 .appcontainer {
     width: 100%;
     height: 100%;
@@ -16,14 +21,31 @@
     margin: 0% 1%;
 }
 
-.controlPanelContent {
-    justify-content: flex-end;
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.invalid {
+    border-color: red;
 }
 
 .field {
     background-color: green;
     width: 100%;
     height: 92%;
+}
+
+.icon-sheep {
+    font-family: icomoon;
+    color: white;
+}
+
+.icon-sheep.branded {
+    font-family: icomoon;
+    color: aquamarine;
 }
 
 html {

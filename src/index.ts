@@ -7,6 +7,7 @@ import * as ReactDOM from 'react-dom';
 
 import { Field } from './elements/field';
 import { ControlPanel } from './elements/controlPanel';
+import { NewSheepPopup } from './elements/controls/NewSheepPopup';
 
 
 function main() {
@@ -24,11 +25,20 @@ function main() {
         }
     );
 
+    let popup = React.createElement(
+        NewSheepPopup,
+        {
+            field: field
+        }
+    );
+    
+
     let container = React.createElement(
         'div', 
         { className: 'appcontainer' }, 
-        controlPanel, field
+        controlPanel, field, popup
     );
+
     
     let d = ReactDOM.render(
         container,

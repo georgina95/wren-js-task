@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { ToggleButton } from './bootstrap';
 import { Field } from './field';
+import { AddSheepButton } from './controls/AddSheepButton';
+import { BreedButton } from './controls/BreedButton';
+import { BrandButton } from './controls/BrandButton';
 
 type PanelProps = { title: string, field: Field };
 type PanelState = {  };
@@ -41,13 +44,14 @@ export class ControlPanel extends React.Component<PanelProps, PanelState> {
     }
 
     getCollapsableContent() {
-        let addButton = React.createElement('button', { className: 'btn btn-outline-success controlButton' }, 'Add sheep');
-        let breedButton = React.createElement('button', { className: 'btn btn-outline-success controlButton' }, 'Breed');
+        let addButton = React.createElement(AddSheepButton, { text: 'Add sheep' });
+        let breedButton = React.createElement(BreedButton, { text: 'Breed' });
+        let brandButton = React.createElement(BrandButton, { text: 'Brand' });
         
         return React.createElement(
             'div',
-            { className: 'collapse navbar-collapse controlPanelContent', id: 'controlPanelCollapsableContent' },
-            addButton, breedButton
+            { className: 'collapse navbar-collapse controlPanelContent', id: 'controlPanelCollapsableContent'},
+            addButton, breedButton, brandButton
         );
 
     }
