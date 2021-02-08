@@ -16,6 +16,8 @@ export class Field extends React.Component<FieldProps, FieldState> {
             herd: []
         };
 
+        this.brandRandomSheep = this.brandRandomSheep.bind(this);
+
         window.field = this;
      }
 
@@ -30,15 +32,40 @@ export class Field extends React.Component<FieldProps, FieldState> {
 
     brandRandomSheep() {
         /*
-        let unBranded = this.props.children.filter(sheep => sheep.props.branded == false );
+        let unBranded = this.state.herd.filter(sheep => sheep.state.branded == false );
         let herdSize = unBranded.length;
         let randomNumber = Math.floor(Math.random() * herdSize);
         let sheep = unBranded[randomNumber];
 
-        var element = document.getElementById("sheep.props.name");
-        element.classList.add("branded");
-        sheep.props.branded = true;
-        */
+        var element = document.getElementById("sheep_" + sheep.props.name);
+        if(element) {
+            element.classList.add("branded");
+            sheep.setState({
+                branded: true
+            });
+        }*/
+
+        
+        let unBranded = this.getUnBrandedSheep();
+        let herdSize = unBranded.length;
+        let randomNumber = Math.floor(Math.random() * herdSize);
+        let sheep = unBranded[randomNumber];
+        
+        if(sheep) {
+            sheep.classList.add("branded");
+        }
+    }
+
+    getUnBrandedSheep() {
+        let herd = document.getElementsByClassName("icon-sheep");
+        let unBranded = [];
+        for(let currsheep of herd) {
+            if( !currsheep.classList.contains("branded") ){
+                unBranded.push(currsheep);
+            }
+        }
+
+        return unBranded;
     }
 
     breed() {

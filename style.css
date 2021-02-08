@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'icomoon';
-    src: local('icomoon'), url(./assets/fonts/icomoon.woff) format('woff');
+    src: local('icomoon'), url(./src/fonts/icomoon.ttf) format('truetype');
 }
 
 .appcontainer {
@@ -36,16 +36,30 @@
     background-color: green;
     width: 100%;
     height: 92%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .icon-sheep {
     font-family: icomoon;
-    color: white;
+}
+
+.sheep-Male {
+    color: lightblue;
+}
+
+.sheep-Female {
+    color: lightpink;
 }
 
 .icon-sheep.branded {
     font-family: icomoon;
-    color: aquamarine;
+    color: lime;
+}
+
+.sheep-placeholder::before {
+    content: '\1f411'
 }
 
 html {

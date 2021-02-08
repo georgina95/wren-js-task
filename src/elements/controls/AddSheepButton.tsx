@@ -21,6 +21,5 @@ export class AddSheepButton extends React.Component<ButtonProps, ButtonState> {
             popup.style.opacity = '1';
             popup.style.display = 'block';
         }
-        console.log("ADD PRESSED");
     }
 }

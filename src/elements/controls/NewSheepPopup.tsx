@@ -124,8 +124,7 @@ export class NewSheepPopup extends React.Component<popupProps, popupState> {
           name: this.state.name,
           gender: this.state.gender,
           parent1: null,
-          parent2: null,
-          branded: false
+          parent2: null
       },
       null
     );

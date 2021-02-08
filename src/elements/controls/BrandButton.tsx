@@ -5,6 +5,17 @@ type ButtonState = {  };
 
 export class BrandButton extends React.Component<ButtonProps, ButtonState> {
     render() {
-        return React.createElement('button', { className: 'btn btn-outline-success controlButton' }, `${this.props.text}`);
+        
+        return (
+            <button type="button" 
+                className="btn btn-outline-success controlButton"
+                onClick={this.onClickBrandSheep} >
+                {this.props.text}
+            </button>
+        );
+    }
+
+    onClickBrandSheep() {
+        window.field.brandRandomSheep();
     }
 }
